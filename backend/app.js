@@ -7,12 +7,15 @@ const { createUser, loginUser } = require('./controllers/users');
 const auth = require('./middlewares/auth');
 const NotFoundError = require('./errors/notFound_error');
 const errHandler = require('./errors/handler_error');
+const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const app = express();
 
 const { PORT = 3000 } = process.env;
 
 app.use(express.json());
+app.use(requestLogger);
+
 app.post(
   '/signin',
   celebrate({
@@ -43,6 +46,7 @@ app.use((req, res, next) => {
   next(new NotFoundError('Страница не найдена'));
 });
 
+app.use(errorLogger);
 app.use(errors());
 app.use(errHandler);
 
