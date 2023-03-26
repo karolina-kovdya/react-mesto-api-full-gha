@@ -1,0 +1,14 @@
+.header__user {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+
+@media screen and (max-width: 590px) {
+    .header__user {
+        display: none;
+    }
+}

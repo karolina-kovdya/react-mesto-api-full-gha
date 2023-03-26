@@ -1,0 +1,10 @@
+.navbar_opened {
+    transform: translateY(0);
+    transition: all 0.2s;
+}
+
+@media screen and (min-width:590px) {
+    .navbar_opened {
+        display: none;
+    }
+}

@@ -1,0 +1,16 @@
+.sign__login-link {
+    margin: 15px 0 0 0;
+    color: #fff;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.2;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 590px) {
+    .header {
+        margin-top: 20px;
+    }
+}

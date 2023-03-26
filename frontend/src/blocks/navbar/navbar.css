@@ -1,0 +1,4 @@
+.navbar {
+    position: fixed;
+    transform: translateY(-200%);
+}

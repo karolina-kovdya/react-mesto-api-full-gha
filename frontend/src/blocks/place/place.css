@@ -1,0 +1,25 @@
+.place {
+    max-width: 68.75%;
+    margin: 51px auto 0;
+    padding: 0;
+    display: block;
+}
+
+@media screen and (max-width: 1040px) {
+    .place {
+        max-width: 84.615%;
+    }
+}
+
+@media screen and (max-width: 590px) {
+    .place {
+        max-width: 425px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .place {
+        margin-top: 36px;
+        max-width: 282px;
+    }
+}

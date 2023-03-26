@@ -1,0 +1,18 @@
+.place__button-like {
+    width: 22px;
+    height: 19px;
+    background-image: url(../../../images/vectorlike.svg);
+    background-repeat: no-repeat;
+    opacity: 1;
+    transition: opacity .3 ease;
+    background-color: inherit;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    border: none;
+}
+
+.place__button-like:hover {
+    opacity: .5;
+}

@@ -1,0 +1,20 @@
+.header__burger-close {
+    width: 24px;
+    height: 24px;
+    background-image: url(../../../images/closeIcon.png);
+    background-size: contain;
+    margin: 0 30px 0 0;
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity .3 ease;
+}
+
+.header__burger-close:hover {
+    opacity: 0.6;
+}
+
+@media screen and (min-width: 590px) {
+    .header__burger-close {
+        display: none;
+    }
+}

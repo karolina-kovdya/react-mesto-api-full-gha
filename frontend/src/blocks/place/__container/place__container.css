@@ -1,0 +1,30 @@
+.place__container {
+    max-width: 282px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+@media screen and (max-width: 848px) {
+    .place__container {
+        max-width: 350px;
+    }
+}
+
+@media screen and (max-width: 590px) {
+    .place__container {
+        max-width: 425px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .place__container {
+        max-width: 282px;
+        height: 322px;
+    }
+}

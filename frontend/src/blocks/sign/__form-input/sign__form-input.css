@@ -1,0 +1,15 @@
+.sign__form-input {
+    margin: 0;
+    outline: none;
+    padding: 0 0 10px;
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    background-color: inherit;
+    font-family: 'Inter';
+    font-size: 14px;
+    line-height: 1.2;
+    font-style: normal;
+    font-weight: 400;
+    color: #fff;
+}

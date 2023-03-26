@@ -1,0 +1,33 @@
+.sign__form-btn {
+    margin: 210px 0 0 0;
+    padding: 0;
+    width: 100%;
+    height: 50px;
+    font-family: 'Inter';
+    font-size: 18px;
+    line-height: 1.2;
+    font-style: normal;
+    font-weight: 400;
+    border: none;
+    border-radius: 2px;
+    opacity: 1;
+    transition: opacity .3 ease;
+}
+
+.sign__form-btn:hover {
+    opacity: .85;
+}
+
+.sign__form-btn:disabled {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
+    opacity: .2;
+}
+
+@media screen and (max-width: 590px) {
+    .sign__form-btn {
+        margin-top: 170px;
+        font-size: 16px;
+    }
+}
