@@ -4,12 +4,12 @@
   
 Пожалуйста, прикрепите в это описание ссылку на сайт, размещенный на Яндекс.Облаке.
 
-Адрес репозитория: https://github.com/...
+Адрес репозитория: https://github.com/karolina-kovdya/react-mesto-api-full-gha
 
 ## Ссылки на проект
 
-IP-адрес x.x.x.x
+IP-адрес 84.201.132.63
 
-Frontend https://...
+Frontend https://karolina.mesto.nomoredomains.work
 
-Backend https://...
+Backend https://back.karolina.mesto.nomoredomains.work
