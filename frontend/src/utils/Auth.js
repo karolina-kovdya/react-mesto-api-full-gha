@@ -1,4 +1,5 @@
-const BASE_URL = "https://auth.nomoreparties.co";
+// const BASE_URL = "https://auth.nomoreparties.co";
+const BASE_URL = "http://localhost:3000"
 
 const getRes = (res) => {
   return res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`);
@@ -22,7 +23,7 @@ export const authorize = (email, password) => {
       Accept: "application/json",
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ email, password }),
+    body: JSON.stringify({ email: email, password: password }),
   }).then(getRes);
 };
 

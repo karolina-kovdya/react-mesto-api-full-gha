@@ -5,8 +5,8 @@ import {UseInput} from "../hooks/UseInput";
 
 function EditProfilePopup({ isOpen, onClose, onUbdateUser}) {
   const currentUser = useContext(currentUserContext);
-  const name = UseInput(`${currentUser.name}`, {isEmpty: true, minLength: 3, maxlength: 30});
-  const description = UseInput(`${currentUser.about}`, {isEmpty: true, minLength: 3, maxlength: 30})
+  const name = UseInput(`${currentUser.about || ""}`, {isEmpty: true, minLength: 3, maxlength: 30});
+  const description = UseInput(`${currentUser.about || ""}`, {isEmpty: true, minLength: 3, maxlength: 30})
   const [formValid, setFormValid] = useState(true);
 
   useEffect (() => {

@@ -19,18 +19,16 @@ const createUser = (req, res, next) => {
       name, about, avatar, email, password: hash,
     })
       .then((user) => res.status(statusSucces.CREATED).send({
-        _id: user._id,
-        name: user.name,
-        about: user.about,
-        avatar,
-        email: user.email,
+        data:
+        { _id: user._id, email: user.email },
       }))
       .catch((err) => {
-        console.log(err);
         if (err.name === 'ValidationError') {
           next(new BadRequestError('Переданы некорректные данные'));
+          return;
         } if (err.code === 11000) {
           next(new ConflictError('Пользователь с такими данными уже существует'));
+          return;
         }
         next(err);
       }));
@@ -51,11 +49,11 @@ const loginUser = (req, res, next) => {
       }))
     .then((user) => {
       const token = jwt.sign({ _id: user._id }, JWT_SECRET, { expiresIn: '7d' });
-      res.cookie('jwt', token, {
-        httpOnly: true,
-        maxAge: 3600000 * 24 * 7,
-      });
-      res.send({ user, token });
+      // res.cookie('jwt', token, {
+      //   httpOnly: true,
+      //   maxAge: 3600000 * 24 * 7,
+      // });
+      res.send({ token });
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {
@@ -121,7 +119,7 @@ const updateAvatar = (req, res, next) => {
   const { avatar } = req.body;
 
   User.findByIdAndUpdate(req.user._id, { avatar }, { new: true })
-    .then(() => res.send({ avatar }))
+    .then((user) => res.send(user))
     .catch((err) => {
       if (err.name === 'ValidationError') {
         next(new BadRequestError('Переданы некорректные данные'));

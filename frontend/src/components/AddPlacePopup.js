@@ -47,6 +47,9 @@ function AddPlacePopup({ isOpen, onClose, onAddPlace}) {
       name: title,
       link: link,
     });
+
+    setTitle("");
+    setLink("");
   }
 
   function blurHandleTitle (e) {

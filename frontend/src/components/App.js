@@ -44,7 +44,8 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if(loggedIn) {
+    const jwt = localStorage.getItem("jwt");
+    if(jwt) {
       Promise.all([api.getCards(), api.getUserInfo()])
       .then(([cardData, userInfo]) => {
         setCurrentUser(userInfo);
@@ -80,7 +81,7 @@ function App() {
       Auth.getContent(jwt)
         .then((res) => {
           setLoggedIn(true);
-          setUserEmail(res.data.email);
+          setUserEmail(res.email);
           navigate("/");
         })
         .catch((err) => {
@@ -156,7 +157,7 @@ function App() {
   }
 
   function handleCardLike(card) {
-    const isLiked = card.likes.some((i) => i._id === currentUser._id);
+    const isLiked = card.likes.some((id) => id === currentUser._id);
 
     api
       .changeLikeCardStatus(isLiked, card)
