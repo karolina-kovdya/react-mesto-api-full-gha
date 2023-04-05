@@ -1,5 +1,6 @@
 // const BASE_URL = "https://auth.nomoreparties.co";
-const BASE_URL = "http://localhost:3000"
+// const BASE_URL = "http://localhost:3000"
+const BASE_URL = "https://back.karolina.mesto.nomoredomains.work"
 
 const getRes = (res) => {
   return res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`);

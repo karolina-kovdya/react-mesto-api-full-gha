@@ -31,7 +31,8 @@ function EditAvatarPopup({isOpen, onClose, onUbdateUser}) {
         onUbdateUser({
             avatar: avatarRef.current.value
         })
-        
+
+        avatarRef.current.value = ""
     }
 
     function blurHandleLink () {

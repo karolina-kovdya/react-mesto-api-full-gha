@@ -117,7 +117,8 @@ class Api {
 }
 
 const api = new Api({
-  url: "http://localhost:3000",
+  // url: "http://localhost:3000",
+  url: "https://back.karolina.mesto.nomoredomains.work"
   // url: "https://mesto.nomoreparties.co/v1/cohort-55",
   // headers: {
   //   authorization: `Bearer ${jwt}`,
