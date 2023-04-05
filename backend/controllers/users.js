@@ -7,7 +7,7 @@ const NotFoundError = require('../errors/notFound_error');
 const ConflictError = require('../errors/conflict_error');
 const UnauthorizedError = require('../errors/unauthorized_error');
 
-const { JWT_SECRET = 'some-word' } = process.env;
+const { NODE_ENV, JWT_SECRET } = process.env;
 
 const createUser = (req, res, next) => {
   const {
@@ -48,7 +48,7 @@ const loginUser = (req, res, next) => {
         throw new UnauthorizedError(('Пользователь не найден'));
       }))
     .then((user) => {
-      const token = jwt.sign({ _id: user._id }, JWT_SECRET, { expiresIn: '7d' });
+      const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret', { expiresIn: '7d' });
       // res.cookie('jwt', token, {
       //   httpOnly: true,
       //   maxAge: 3600000 * 24 * 7,
