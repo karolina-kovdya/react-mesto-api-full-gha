@@ -8,7 +8,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 84.201.132.63
+IP
 
 Frontend https://karolina.mesto.nomoredomains.work
 
