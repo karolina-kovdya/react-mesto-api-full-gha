@@ -45,7 +45,7 @@ const loginUser = (req, res, next) => {
         if (matched) {
           return user;
         }
-        throw new UnauthorizedError(('Пользователь не найден'));
+        throw new UnauthorizedError(('Неверный пароль'));
       }))
     .then((user) => {
       const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret', { expiresIn: '7d' });
@@ -58,6 +58,7 @@ const loginUser = (req, res, next) => {
     .catch((err) => {
       if (err.name === 'ValidationError') {
         next(new BadRequestError('Переданы некорректные данные'));
+        return;
       }
       next(err);
     });
@@ -68,8 +69,9 @@ const getUser = (req, res, next) => {
     .orFail(() => { throw new NotFoundError('Пользователь по указанному id не найден'); })
     .then((user) => res.send(user))
     .catch((err) => {
-      if (err.name === 'CastError' || err.name === 'ValidationError') {
+      if (err.name === 'CastError') {
         next(new BadRequestError('Передан некорректный id'));
+        return;
       }
       next(err);
     });
@@ -84,8 +86,9 @@ const getCurrentUser = (req, res, next) => {
       res.send(user);
     })
     .catch((err) => {
-      if (err.name === 'CastError' || err.name === 'ValidationError') {
+      if (err.name === 'CastError') {
         next(new BadRequestError('Переданы некорректные данные'));
+        return;
       }
       next(err);
     });
@@ -110,6 +113,7 @@ const updateUser = (req, res, next) => {
     .catch((err) => {
       if (err.name === 'CastError' || err.name === 'ValidationError') {
         next(new BadRequestError('Переданы некорректные данные'));
+        return;
       }
       next(err);
     });
@@ -123,6 +127,7 @@ const updateAvatar = (req, res, next) => {
     .catch((err) => {
       if (err.name === 'ValidationError') {
         next(new BadRequestError('Переданы некорректные данные'));
+        return;
       }
       next(err);
     });
