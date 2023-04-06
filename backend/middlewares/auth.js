@@ -13,7 +13,7 @@ const auth = (req, res, next) => {
   let payload;
   const token = authorization.replace('Bearer ', '');
   try {
-    payload = jwt.verify(token, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret');
+    payload = jwt.verify(token, NODE_ENV === 'production' ? JWT_SECRET : 'some-secret');
   } catch (err) {
     throw new UnauthorizedError('Пользователь не авторизован');
   }
